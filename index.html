@@ -30,7 +30,7 @@
   </head>
 
   <body class="m-0 p-0 transition-colors duration-300">
-    <!-- Header/Navbar -->
+    <!-- Header-->
     <header
       class="navbar-styled fixed top-0 left-0 w-full px-5 md:px-[10%] py-3 flex justify-between items-center z-[100]"
     >
@@ -199,7 +199,7 @@
       </div>
     </section>
 
-    <!-- Abuot Me -->
+    <!-- About Me Section -->
     <section
       id="about"
       class="section-with-bg relative w-full min-h-screen flex items-center justify-center px-5 md:px-[10%] py-24"
@@ -271,7 +271,7 @@
           </div>
         </div>
 
-        <!-- Education and Skills -->
+        <!-- Education & Skills Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
           <!-- Education -->
           <div class="about-card">
@@ -295,7 +295,7 @@
             </div>
           </div>
 
-          <!-- Skills and Tools -->
+          <!-- Skills & Tools -->
           <div class="about-card">
             <h3
               class="main-text text-sm md:text-base font-bold mb-3 text-cyan-400 uppercase tracking-wider"
@@ -518,6 +518,16 @@
           />
 
           <input
+            type="tel"
+            name="user_contact"
+            id="user_contact"
+            required
+            class="form-input w-full px-5 py-2.5 bg-transparent border-2 border-cyan-400 rounded-[40px] text-sm outline-none transition-all duration-300 focus:shadow-[0_0_5px_#0ef,0_0_15px_#0ef] placeholder:font-light"
+            placeholder="Contact Number"
+            style="color: #ffffff"
+          />
+
+          <input
             type="email"
             name="user_email"
             id="user_email"
@@ -556,6 +566,65 @@
             class="text-center text-sm font-semibold hidden"
           ></div>
         </form>
+
+        <!-- Submissions Table -->
+        <div class="mt-16">
+          <h3
+            class="main-text text-xl md:text-2xl font-bold text-center mb-6"
+            style="color: #ededed"
+          >
+            Previous <span class="text-cyan-400">Submissions</span>
+          </h3>
+          <div class="overflow-x-auto">
+            <div class="about-card min-w-[600px]">
+              <table class="w-full text-left">
+                <thead>
+                  <tr
+                    class="border-b"
+                    style="border-color: rgba(0, 239, 255, 0.3)"
+                  >
+                    <th
+                      class="main-text py-3 px-4 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="main-text py-3 px-4 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider"
+                    >
+                      Contact
+                    </th>
+                    <th
+                      class="main-text py-3 px-4 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider"
+                    >
+                      Email
+                    </th>
+                    <th
+                      class="main-text py-3 px-4 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider"
+                    >
+                      Message
+                    </th>
+                    <th
+                      class="main-text py-3 px-4 text-xs md:text-sm font-bold text-cyan-400 uppercase tracking-wider"
+                    >
+                      Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="submissions-table-body">
+                  <tr>
+                    <td
+                      colspan="5"
+                      class="main-text py-8 text-center text-xs md:text-sm"
+                      style="color: #9ca3af"
+                    >
+                      No submissions yet. Be the first to reach out!
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -591,7 +660,7 @@
 
       <!-- Main Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-        <!-- Column 1: Tagline and CV Download -->
+        <!-- Column 1: Tagline & CV Download -->
         <div class="space-y-4">
           <div>
             <p
@@ -726,7 +795,7 @@
           </div>
         </div>
 
-        <!-- Column 3: Logo and Name -->
+        <!-- Column 3: Logo & Name -->
         <div class="flex items-center justify-center md:justify-end gap-4">
           <img
             src="logo.png"
@@ -754,6 +823,7 @@
         </div>
       </div>
 
+      <!-- Bottom Bar -->
       <div
         class="footer-bottom-bar border-t pt-5 flex flex-col md:flex-row justify-between items-center gap-2"
         style="border-color: rgba(0, 239, 255, 0.15)"

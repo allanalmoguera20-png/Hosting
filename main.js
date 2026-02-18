@@ -138,6 +138,55 @@ function updateActiveNav() {
 window.addEventListener('scroll', updateActiveNav);
 updateActiveNav();
 
+function loadSubmissions() {
+  const submissions =
+    JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+  const tbody = document.getElementById('submissions-table-body');
+
+  if (submissions.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="5" class="main-text py-8 text-center text-xs md:text-sm" style="color:#9ca3af;">
+          No submissions yet. Be the first to reach out!
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = submissions
+    .map(
+      (sub) => `
+    <tr>
+      <td class="py-4 px-4">${sub.name}</td>
+      <td class="py-4 px-4">${sub.contact}</td>
+      <td class="py-4 px-4">${sub.email}</td>
+      <td class="py-4 px-4">${sub.message}</td>
+      <td class="py-4 px-4">${sub.date}</td>
+    </tr>
+  `
+    )
+    .join('');
+}
+
+function saveSubmission(name, contact, email, message) {
+  const submissions =
+    JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+  const date = new Date().toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  submissions.push({ name, contact, email, message, date });
+  localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+  loadSubmissions();
+}
+
+loadSubmissions();
+
 document
   .getElementById('contact-form')
   .addEventListener('submit', function (e) {
@@ -145,12 +194,19 @@ document
     const btn = e.target.querySelector('button[type="submit"]');
     const status = document.getElementById('status-message');
 
+    const name = document.getElementById('user_name').value;
+    const contact = document.getElementById('user_contact').value;
+    const email = document.getElementById('user_email').value;
+    const message = document.getElementById('message').value;
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
     status.classList.add('hidden');
 
     emailjs.sendForm('service_eli3t1r', 'template_cm5nx2h', this).then(
       () => {
+        saveSubmission(name, contact, email, message);
+
         status.textContent = 'Message sent successfully! 🎉';
         status.classList.remove('hidden', 'text-red-400');
         status.classList.add('text-cyan-400');

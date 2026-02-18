@@ -26,6 +26,7 @@ body.light-mode .section-with-bg {
     url('images/background.jpg');
 }
 
+/* Navbar  */
 .navbar-styled {
   background: transparent;
   backdrop-filter: blur(8px);
@@ -47,7 +48,7 @@ body.light-mode #nav-menu {
   }
 }
 
-/*Animation */
+/*Animations */
 @keyframes slideRight {
   0% {
     transform: translateX(-100px);
@@ -260,6 +261,7 @@ body.light-mode .project-icon {
   border-color: rgba(0, 212, 255, 0.5);
 }
 
+/*  Footer  */
 .footer-styled {
   background: #000000;
   border-top: 1px solid rgba(0, 239, 255, 0.2);
@@ -338,7 +340,6 @@ body.light-mode .footer-bottom-bar {
   border-color: rgba(8, 145, 178, 0.2) !important;
 }
 
-/* Light Mode */
 body.light-mode .text-cyan-400 {
   color: #0891b2 !important;
 }
@@ -402,4 +403,44 @@ body.light-mode #downloadLink {
 body.light-mode a.border-cyan-400 {
   border-color: #0891b2 !important;
   color: #0891b2 !important;
+}
+
+/* Submissions Table  */
+#submissions-table-body tr {
+  border-bottom: 1px solid rgba(0, 239, 255, 0.15);
+  transition: background 0.2s ease;
+}
+
+#submissions-table-body tr:last-child {
+  border-bottom: none;
+}
+
+#submissions-table-body tr:hover {
+  background: rgba(0, 239, 255, 0.05);
+}
+
+#submissions-table-body td {
+  padding: 1rem;
+  font-size: 0.75rem;
+  color: #d1d5db;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+body.light-mode #submissions-table-body tr {
+  border-bottom: 1px solid rgba(8, 145, 178, 0.15);
+}
+
+body.light-mode #submissions-table-body tr:hover {
+  background: rgba(8, 145, 178, 0.05);
+}
+
+body.light-mode #submissions-table-body td {
+  color: #4b5563;
+}
+
+@media (min-width: 768px) {
+  #submissions-table-body td {
+    font-size: 0.875rem;
+  }
 }
