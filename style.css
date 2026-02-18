@@ -20,13 +20,19 @@ body.light-mode {
   background-attachment: fixed;
 }
 
+@media (max-width: 768px) {
+  .section-with-bg {
+    background-attachment: scroll;
+  }
+}
+
 body.light-mode .section-with-bg {
   background-image:
     linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.9)),
     url('images/background.jpg');
 }
 
-/* Navbar  */
+/*  Navbar */
 .navbar-styled {
   background: transparent;
   backdrop-filter: blur(8px);
@@ -48,7 +54,7 @@ body.light-mode #nav-menu {
   }
 }
 
-/*Animations */
+/*  Animations  */
 @keyframes slideRight {
   0% {
     transform: translateX(-100px);
@@ -405,7 +411,7 @@ body.light-mode a.border-cyan-400 {
   color: #0891b2 !important;
 }
 
-/* Submissions Table  */
+/* Submissions Table */
 #submissions-table-body tr {
   border-bottom: 1px solid rgba(0, 239, 255, 0.15);
   transition: background 0.2s ease;
